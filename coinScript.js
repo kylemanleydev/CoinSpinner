@@ -11,6 +11,8 @@ function redeem()
 		score -= 10;
 		document.getElementById('score').innerHTML = "x" + score;
 		document.getElementById('reward').innerHTML = " Redeem 20 Coins for surprise! ";
+		var audio = new Audio('Media/coin.wav');
+		audio.play();
 	}
 	if(score >= 20 && award === 1)
 	{
@@ -19,6 +21,8 @@ function redeem()
 		score -= 20;
 		document.getElementById('score').innerHTML = "x" + score;
 		document.getElementById('reward').innerHTML = " You are now rich! ";
+		var audio = new Audio('Media/coin.wav');
+		audio.play();
 	}
 }
 function change()

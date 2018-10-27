@@ -11,11 +11,11 @@ h1
 }
 .coinCount h2 
 {
-  color: white;
-  font-size: 550%;
-  position: relative;
-  top: -80px;
-  text-shadow: 5px 5px black;
+	color: white;
+	font-size: 550%;
+	position: relative;
+	top: -80px;
+	text-shadow: 5px 5px black;
 }
 body
 {
