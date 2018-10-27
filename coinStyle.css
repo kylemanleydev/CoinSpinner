@@ -1,0 +1,73 @@
+h1
+{
+	text-align: center;
+	font-size: 500%;
+	background-color: gold;
+	border: 2px solid black;
+}
+.coinCount
+{
+	display: flex;
+}
+.coinCount h2 
+{
+  color: white;
+  font-size: 550%;
+  position: relative;
+  top: -80px;
+  text-shadow: 5px 5px black;
+}
+body
+{
+	background-image: url("Media/background.jpg");
+	background-size: fit;
+	text-align: center;
+}
+button
+{
+	font-size: 200%;
+}
+@keyframes spinR
+{
+    from 
+	{
+		transform:rotate(0deg);
+	}
+    to 
+	{
+		transform:rotate(360deg);
+	}
+}
+@keyframes spinL
+{
+    from 
+	{
+		transform:rotate(0deg);
+	}
+    to 
+	{
+		transform:rotate(-360deg);
+	}
+}
+#spinRight
+{
+	transform-origin: 50% 20%;
+	text-align: center;
+	animation-name: spinR;
+    animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+#spinLeft
+{
+	transform-origin: 50% 20%;
+	text-align: center;
+	animation-name: spinL;
+    animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+#spinner
+{
+	cursor: pointer;
+	position: relative;
+	top: -200px;
+}
