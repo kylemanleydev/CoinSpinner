@@ -20,7 +20,9 @@ h1
 body
 {
 	background-image: url("Media/background.jpg");
-	background-size: fit;
+	background-size: cover;
+	background-postion: center;
+	background-size: 100% 100%;
 	text-align: center;
 }
 button
