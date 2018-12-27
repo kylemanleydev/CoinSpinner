@@ -48,10 +48,20 @@ table {
 }
 
 
+/*************
+ General CSS Rules
+***************/
+
+html {
+	height: 100%;
+}
+
 body
 {
+	min-height: 100%;
 	background-image: url("Media/background.jpg");
 	background-size: cover;
+	background-repeat: no-repeat;
 	background-position: center;
 	/*background-size: 100% 100%;*/
 	/*text-align: center;*/
@@ -60,15 +70,15 @@ body
 
 h1
 {
+	font-size: 1.25rem;
 	text-align: center;
-	font-size: 6vw;
 	background-color: gold;
 	border: 2px solid black;
 }
 
 
 nav {
-	padding: .5vw;
+	padding: .125rem;
 	display: flex; /* or inline-flex */
 	flex-direction: row; /* or | row-reverse | column | column-reverse */
 	flex-wrap: nowrap; /* or | wrap | wrap-reverse */
@@ -78,59 +88,75 @@ nav {
 
 .button
 {
-	font-size: 1.65vw;
-	padding: .5vw 1.5vw;
+	font-size: .25rem;
+	padding: .125rem .25rem;
 	border: 1px solid #000;
 	text-transform: uppercase;
-	margin: 1vw;
 	margin: auto;  /* Magic! */
 	width: 100%;
+	min-height: 1.0rem;
 }
 
 #content {
-	clear: both;
-	display: flex;
-	flex-direction: row; /* or | row-reverse | column | column-reverse */
-	flex-wrap: nowrap; /* or | wrap | wrap-reverse */
-	justify-content: flex-start; /* or center | flex-end |  | space-between | space-around | space-evenly */
-	
-}
+		clear: both;
+		display: flex;
+		flex-direction: column; /* or | row-reverse | column | column-reverse */
+		flex-wrap: nowrap; /* or | wrap | wrap-reverse */
+		justify-content: center; /* or center | flex-end |  | space-between | space-around | space-evenly */
+		max-height: 20rem;
+		height: calc( 90vh - 4.0rem );
+		min-height: 10rem;
+	}
 
 .coinCountContainer {
 	display: flex;
 	flex-direction: row; /* or | row-reverse | column | column-reverse */
 	flex-wrap: nowrap; /* or | wrap | wrap-reverse */
 	justify-content: center; /* or flex-start | flex-end |  | space-between | space-around | space-evenly */
-	/*width: 26vw;*/
-	/*float: left;*/
 	height: auto;
-	/*background: rgba(255,255,255,.25);*/
-	/*border-radius: 1vw;*/
-	margin-left: 2vw;
-}
-.coinCountContainer .coinCount {
-	/*display: flex;*/
-	margin: auto;  /* Magic! */
+
 }
 
-.coinCountContainer .coinCount img {
-	width: 10vw;
+.spinnerContainer {
+		/*display: flex;*/
+		text-align: center;
+		justify-content: center;
+		height: auto;
+		width: 100%;
+	}
+
+#spinner
+{
+	border-radius: .5rem;
+	max-width: 6.5rem;
+	width: 100%;
 	height: auto;
+	/*max-height: 6.5rem;*/
 }
 
+.coinCountContainer .coinCount,
 .coinCountContainer .coinScore {
 	margin: auto;  /* Magic! */
 }
+
 .coinCountContainer .coinScore h2 
 {
 	color: white;
-	font-size: 8vw;
-	/*position: relative;*/
-	/*top: -80px;*/
-	
-	text-shadow: .25vw .25vw rgba(123,123,123,.5);
+	font-size: 2.0rem;
+	text-shadow: .125rem .125rem rgba(123,123,123,.5);
 }
 
+@keyframes spinN
+{
+    from 
+	{
+		transform:rotate(0deg);
+	}
+    to 
+	{
+		transform:rotate(0deg);
+	}
+}
 @keyframes spinR
 {
     from 
@@ -155,37 +181,36 @@ nav {
 }
 
 .spinnerContainer {
-	flex-grow: 2;
-	text-align: center;
+		text-align: center;
+	}
+
+#spinner.right.rotate
+{
+	animation-name: spinR;
 }
+
+#spinner.left.rotate
+{
+	animation-name: spinL;
+}
+
+
 #spinner
 {
-	
 	cursor: pointer;
 	position: relative;
 	/*top: -200px;*/
 	/*border: 1px solid green;*/
-	border-radius: 5vw;
-	max-width: 600px;
-	width: 30vw;
+	/*border-radius: 5vw;*/
+	/*max-width: 600px;*/
+	/*width: 30vw;*/
 	height: auto;
-}
-
-#spinner.right
-{
-	
 	text-align: center;
-	animation-name: spinR;
-    animation-iteration-count: infinite;
+	animation-name: spinN;
+	animation-iteration-count: infinite;
 	animation-timing-function: linear;
-}
-
-#spinner.left
-{
-	text-align: center;
-	animation-name: spinL;
-    animation-iteration-count: infinite;
-	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+	animation-duration: 10s;
 }
 
 #spinner.default {
@@ -198,4 +223,119 @@ nav {
 
 #spinner.award2 {
 	transform-origin: 51.6% 52.1%;
+}
+
+#spinner.award2 {
+	transform-origin: 50.0% 50.0%;
+}
+
+
+/*************
+ Responsive CSS Rules
+***************/
+
+html {
+	font-size: 10vw;
+}
+
+
+
+
+
+
+/*Extra small devices (portrait phones, less than 576px)*/
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+
+	html {
+		font-size: 8vw;
+	}
+
+	#content {
+		clear: both;
+		display: flex;
+		flex-direction: row; /* or | row-reverse | column | column-reverse */
+		flex-wrap: nowrap; /* or | wrap | wrap-reverse */
+		justify-content: flex-start; /* or center | flex-end |  | space-between | space-around | space-evenly */
+		
+	}
+
+	.coinCountContainer {
+		display: flex;
+		flex-direction: row; /* or | row-reverse | column | column-reverse */
+		flex-wrap: nowrap; /* or | wrap | wrap-reverse */
+		justify-content: center; /* or flex-start | flex-end |  | space-between | space-around | space-evenly */
+		/*width: 26vw;*/
+		/*float: left;*/
+		height: auto;
+		/*background: rgba(255,255,255,.25);*/
+		/*border-radius: 1vw;*/
+		margin-left: 2vw;
+	}
+
+	.spinnerContainer {
+		flex-grow: 2;
+		text-align: center;
+	}
+
+	#spinner {
+		border-radius: 5vw;
+		max-width: 600px;
+		width: 8rem;
+		height: auto;
+	}
+
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+
+html {
+	font-size: 6vw;
+}
+
+.button
+{
+	font-size: .5rem;
+	padding: .125rem .125rem;
+	min-height: 2.5rem;
+}
+
+#spinner {
+		width: 10rem;
+	}
+
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+
+html {
+	font-size: 4vw;
+}
+
+.button {
+	font-size: .5rem;
+	padding: .125rem .25rem;
+	min-height: 2.0rem;
+}
+
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+
+html {
+	font-size: 2vw;
+}
+
+
+
 }
